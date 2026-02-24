@@ -58,7 +58,7 @@ const nextVideo = async () => {
         </div>
         <div v-else class="w-screen h-screen bg-zinc-900">
             <GrooveSpinner :show="showSpinner" />
-            <GroovePlayer :video="currentVideo" :onVideoEnd="nextVideo" />
+            <GroovePlayer v-if="currentVideo" :video="currentVideo" :onVideoEnd="nextVideo" />
             <Controls :nextVideo="nextVideo" :showInfo="() => { showInfo = true }"
                 :showHistory="() => { showHistory = true }" />
             <InfoModal :show="showInfo" :onClose="() => { showInfo = false }" />
