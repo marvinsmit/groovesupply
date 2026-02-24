@@ -26,7 +26,6 @@ onMounted(async () => {
             player.loadVideoById(props.video?.snippet.resourceId.videoId)
         }
     })
-    player.setOption('playerVars', 'controls', 0)
     player.on('stateChange', function (event) {
         if (event.data === PlayerStates.ENDED) {
             props.onVideoEnd();
