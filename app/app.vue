@@ -13,7 +13,7 @@ const {
 } = useGroovePlayer();
 
 const ready = ref(false)
-const showWelcome = ref(false);
+const showWelcome = ref(true);
 const showInfo = ref(false)
 const showHistory = ref(false)
 const showSpinner = ref(false)
@@ -23,22 +23,14 @@ useSeoMeta({
 })
 
 onMounted(async () => {
-    checkWelcome();
     loadFromStorage();
     await fetchPlaylist();
     pickRandom(videos.value);
     ready.value = true;
 });
 
-const checkWelcome = () => {
-    const savedWelcome = localStorage.getItem('show-welcome')
-    if (savedWelcome === null) { showWelcome.value = true }
-    else { showWelcome.value = savedWelcome === 'true' }
-}
-
 const startGrooving = () => {
     showWelcome.value = false;
-    localStorage.setItem("show-welcome", 'false');
 }
 
 const nextVideo = async () => {
@@ -49,7 +41,7 @@ const nextVideo = async () => {
 </script>
 
 <template>
-    <div v-if="showWelcome === true" class="w-screen h-screen flex flex-col items-center justify-center bg-zinc-900">
+    <div v-if="showWelcome" class="w-screen h-screen flex flex-col items-center justify-center bg-zinc-900">
         <WelcomeScreen :onClose="startGrooving" />
     </div>
     <div v-else>

@@ -15,8 +15,8 @@
       "path": "./.nuxt/tsconfig.node.json"
     }
   ],
-  "typeRoots": [
-    "node_modules/@types"
-  ],
-  "types": [ "youtube" ]
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types"],
+    "types": ["youtube"]
+  },
 }
