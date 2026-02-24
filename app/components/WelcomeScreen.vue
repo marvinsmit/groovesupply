@@ -16,8 +16,7 @@ defineProps<{
                 leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
                 <img class="fixed inset-0 w-full h-full object-cover object-center"
                     src="../assets/images/welcome-bg-2.jpg" />
-                <div class="fixed inset-0 bg-black/75">
-                </div>
+                <div class="fixed inset-0 bg-black/75" />
             </TransitionChild>
             <div class="fixed inset-0 overflow-y-auto">
                 <div class="flex min-h-full items-center justify-center p-4">
