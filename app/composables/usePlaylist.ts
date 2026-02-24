@@ -31,6 +31,6 @@ export const usePlaylist = () => {
 
     loading.value = false;
   };
-console.debug(videos);
+  
   return { videos, loading, fetchPlaylist };
 };

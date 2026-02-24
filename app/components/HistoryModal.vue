@@ -35,7 +35,7 @@ defineProps<{
                                 History
                             </DialogTitle>
                             <DialogDescription>
-                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-h-80 overflow-y-auto">
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pr-2 max-h-80 overflow-y-auto">
                                     <div v-for="item in Array.from(history).reverse()" :key="item.snippet.title"
                                         class="flex flex-col gap-2 text-xs text-zinc-700 hover:text-zinc-900 cursor-pointer"
                                         @click="onSelect(item)">
