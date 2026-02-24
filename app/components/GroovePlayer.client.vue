@@ -21,10 +21,9 @@ onMounted(async () => {
             rel: 0,
         }
     });
-    player.on('ready', async () => {
+    player.on('ready', () => {
         if (props.video) {
-            await player.loadVideoById(props.video?.snippet.resourceId.videoId)
-            player.playVideo();
+            player.loadVideoById(props.video?.snippet.resourceId.videoId)
         }
     })
     player.on('stateChange', function (event) {
