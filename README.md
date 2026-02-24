@@ -1,50 +1,70 @@
-# 🎶 GrooveSupply
+# GrooveSupply
 
-**GrooveSupply** is a small hobby project built out of pure love for live music.  
-It’s a shuffle-based YouTube playlist experience that serves you a daily dose of hidden live music gems — from intimate acoustic sessions to explosive festival performances.
+GrooveSupply is a small hobby project built out of a genuine love for live music. It’s a shuffle-based YouTube playlist experience that delivers a daily dose of hidden live music gems — from intimate studio sessions to electrifying festival performances.
 
-No algorithms. No charts.  Just press shuffle and let the groove surprise you.
+No recommendation algorithm. No endless scrolling.  
+Just press shuffle and let the groove surprise you.
 
-## ✨ Why I Built This
+Check it out on https://groovesupply.nl/
 
-I’ve collected a large playlist of live performances over the years.  
-Instead of endlessly scrolling through it, I wanted:
+## About the Project
 
-- 🎲 A true shuffle experience  
-- 📺 Seamless autoplay  
-- 🔁 Automatic “next” when a video ends  
-- 🕘 A watch history to revisit great moments  
-- 💾 Resume where you left off  
+Over the years, I collected a large playlist of live performances on YouTube. Instead of manually picking videos or relying on YouTube’s suggestions, I wanted a focused experience:
 
-GrooveSupply started as a fun side project — and turned into a showcase of modern frontend architecture.
+- A true shuffle mechanism  
+- Automatic playback  
+- Seamless “auto next” when a video ends  
+- A persistent watch history  
+- The ability to resume where I left off  
 
-## 🧱 Tech Stack
+GrooveSupply started as a fun side project and evolved into a frontend showcase built with a modern Vue/Nuxt stack.
 
-Built with:
+## Tech Stack
 
-- Nuxt 3
-- Vue 3
-- TypeScript
-- TailwindCSS
-- YouTube IFrame Player API
-- LocalStorage for persistence
+- Nuxt 3  
+- Vue 3  
+- TypeScript  
+- TailwindCSS  
+- YouTube Data API v3  
+- YouTube IFrame Player API  
+- LocalStorage for client-side persistence  
 
-## 🚀 Features
+## Features
 
-- 🎬 Embedded YouTube player
-- ▶️ Autoplay on load
-- ⏭ Auto-next when a video ends
-- 🎲 Smart shuffle
-- 🕘 Watch history with titles & thumbnails
-- 💾 Persistent state using `localStorage`
-- 💅 Clean, modern UI
-- 🌙 Dark-mode focused design
+- Embedded YouTube player with autoplay  
+- Automatic next video when playback ends  
+- Smart shuffle (prioritizes unseen videos)  
+- Watch history with titles and thumbnails  
+- Resume playback from last session  
+- Fully typed state management  
+- Clean, dark-focused UI  
 
-## 🧠 How It Works
+## Architecture Overview
 
-1. The full YouTube playlist is fetched via the **YouTube Data API (v3)**.
-2. Videos are normalized into a typed internal format.
-3. Shuffle logic selects unseen videos first.
-4. Playback is handled using the official **YouTube IFrame API**.
-5. When a video ends, the app automatically selects and loads the next one.
-6. History and watched state are stored locally so you can resume later.
+1. The full playlist is fetched via the YouTube Data API (with pagination support).
+2. Videos are normalized into a typed internal model.
+3. Shuffle logic prioritizes unseen videos before repeating.
+4. Playback is handled using the official YouTube IFrame API.
+5. Player state changes are observed to trigger automatic transitions.
+6. History and watched state are persisted using `localStorage`.
+
+The project intentionally avoids heavy wrapper libraries in favor of direct API integration, making script loading, event handling, and client-only rendering explicit and controlled.
+
+## What This Project Demonstrates
+
+- API integration and pagination handling  
+- SSR-safe third-party script loading in Nuxt  
+- Event-driven video control  
+- Typed state modeling with TypeScript  
+- Local persistence strategies  
+- Component-driven UI architecture  
+- Clean separation of concerns (composables, components, types)  
+
+## Philosophy
+
+GrooveSupply isn’t meant to replace streaming platforms.  
+It’s a personal tool for rediscovering performances that deserve attention.
+
+It’s about the spontaneity of shuffle.  
+It’s about the energy of live music.  
+It’s about letting the stage lights turn on without knowing what comes next.
